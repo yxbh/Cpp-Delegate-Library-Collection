@@ -76,7 +76,7 @@ namespace ssvu
                 static_assert(sizeof(mFunc) == sizeof(u.s), "Cannot use horrible_cast<>");
                 u.func = mFunc;
                 mFuncOut = u.s.funcaddress;
-                return reinterpret_cast<AnyClass *>(reinterpret_cast<char *>(mThis)+u.s.delta);
+                return reinterpret_cast<AnyClass *>(reinterpret_cast<char *>(const_cast<TThis*>(mThis))+u.s.delta);
             }
         };
         struct MicrosoftVirtualMFP {
