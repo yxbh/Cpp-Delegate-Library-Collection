@@ -11,11 +11,6 @@
 
 #ifdef _MSC_VER
 
-#if (_MSC_VER < 1900) // constexpr & noexcept were not available prior to VS14
-#define constexpr const
-#define noexcept //_NOEXCEPT
-#endif
-
 namespace ssvu
 {
     namespace Internal
