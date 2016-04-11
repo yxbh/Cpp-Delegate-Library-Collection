@@ -24,12 +24,15 @@ BOOST_AUTO_TEST_CASE(inlineFreeFuncWithParam)
 	auto inlineFreeFuncA_1 = generic::delegate<void(void)>::from<&rawInlineFreeFuncNoParamA>();
 	auto inlineFreeFuncA_2 = generic::delegate<void(void)>::from<&rawInlineFreeFuncNoParamA>();
 	BOOST_CHECK(inlineFreeFuncA_1 == inlineFreeFuncA_2);
+	BOOST_CHECK(inlineFreeFuncA_2 == inlineFreeFuncA_1);
 
 	auto inlineFreeFuncParamA_1 = generic::delegate<void(EventSPtr)>(&rawInlineFreeFuncWithParamA);
 	auto inlineFreeFuncParamA_2 = generic::delegate<void(EventSPtr)>(&rawInlineFreeFuncWithParamA);
 	auto inlineFreeFuncParamB_1 = generic::delegate<void(EventSPtr)>(&rawInlineFreeFuncWithParamB);
 	BOOST_CHECK(inlineFreeFuncParamA_1 == inlineFreeFuncParamA_2);
+	BOOST_CHECK(inlineFreeFuncParamA_2 == inlineFreeFuncParamA_1);
 	BOOST_CHECK(inlineFreeFuncParamA_1 != inlineFreeFuncParamB_1);
+	BOOST_CHECK(inlineFreeFuncParamB_1 != inlineFreeFuncParamA_1);
 
 	auto inlineFreeFuncA_3 = generic::delegate<void(void)>(&rawInlineFreeFuncNoParamA);
 	auto inlineFreeFuncA_4 = generic::delegate<void(void)>(&rawInlineFreeFuncNoParamA);
