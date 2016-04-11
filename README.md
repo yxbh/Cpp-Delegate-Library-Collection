@@ -6,7 +6,7 @@ This is a collection of C++ delegate libraries that I've discovered and collecte
 ## Library
 Here's the current list of delegate libraries in this repo (2014/06):
  * FastFunc:  
-   A C++11 re-implementation of Don Clugston's original FastDelegate([CodeProject link](http://www.codeproject.com/Articles/7150/Member-Function-Pointers-and-the-Fastest-Possible)).
+   A C++11 re-implementation of Don Clugston's original FastDelegate by Paúl Jiménez(Ceniza)([CodeProject link](http://www.codeproject.com/Articles/7150/Member-Function-Pointers-and-the-Fastest-Possible)).
 ([Gist](https://gist.github.com/yxbh/997d5a7791e3fe18e94f))
    Signature: `ssvu::FastFunc`  
 
