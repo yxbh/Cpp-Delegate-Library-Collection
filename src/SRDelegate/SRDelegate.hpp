@@ -13,6 +13,7 @@
  *  - http://codereview.stackexchange.com/questions/14730/impossibly-fast-delegate-in-c11
  *  - http://www.codeproject.com/Articles/11015/The-Impossibly-Fast-C-Delegates
  *  - https://code.google.com/p/cpppractice/source/browse/trunk/delegate.hpp
+ *  - https://github.com/janezz55/generic/blob/master/delegate.hpp
 */
 
 #pragma once
