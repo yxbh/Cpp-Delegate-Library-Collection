@@ -11,7 +11,8 @@ Here's the current list of delegate libraries in this repo (2014/06):
    Signature: `ssvu::FastFunc`  
 
  * FastDelegate:  
-   A C++11 variadic template version of Don Clugston's original FastDelegate([CodeProject link](http://www.codeproject.com/Articles/7150/Member-Function-Pointers-and-the-Fastest-Possible)).
+   A C++11 variadic template version of Don Clugston's original FastDelegate ([Source link](https://sites.google.com/site/ceniza666/cpp))
+([Original Implementation CodeProject link](http://www.codeproject.com/Articles/7150/Member-Function-Pointers-and-the-Fastest-Possible)).
   Signature: `fastdelegate::FastDelegate`
 
  * SRDelegate:  
@@ -32,7 +33,7 @@ Boost unit test is also available under the unit_test directory. Both a VS2013 a
 None AFAIK.
 
 ## Benchmark
-A benchmark is available to do performance comparison of function call performance for the libraries. It measures the function call performance.
+A benchmark is available to do performance comparison of function call performance for the libraries. It measures the function call performance. The benchmark also contains the original FastDelegate written by Don Clugston.
 
 Feel free to send in pull request and contribute.
 
