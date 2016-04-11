@@ -6,20 +6,9 @@ BOOST_AUTO_TEST_SUITE(SRDelegate_Cpp11)
 
 BOOST_AUTO_TEST_CASE(custom)
 {
-    auto inlineFreeFuncA_1 = generic::delegate<void(void)>::from<&rawInlineFreeFuncNoParamA>();
-    auto inlineFreeFuncA_2 = generic::delegate<void(void)>::from<&rawInlineFreeFuncNoParamA>();
-    BOOST_CHECK(inlineFreeFuncA_1 == inlineFreeFuncA_2);
+	auto inlineFreeFuncA_3 = generic::delegate<void(void)>(&rawInlineFreeFuncNoParamA);
+	auto inlineFreeFuncA_4 = generic::delegate<void(void)>(&rawInlineFreeFuncNoParamA);
 
-    //auto inlineFreeFuncParamA_1 = generic::delegate<void(EventSPtr)>(&rawInlineFreeFuncWithParamA); // does not compile in VS2013 (SFINAE issue?).
-    auto inlineFreeFuncA_3 = generic::delegate<void(void)>(&rawInlineFreeFuncNoParamA);
-    auto inlineFreeFuncA_4 = generic::delegate<void(void)>(&rawInlineFreeFuncNoParamA);
-    generic::delegate<void(void)> inlineFreeFuncA_5 = &rawInlineFreeFuncNoParamA;
-    auto inlineFreeFuncA_6 = generic::delegate<void(void)>::from(&rawInlineFreeFuncNoParamA);
-    BOOST_CHECK(inlineFreeFuncA_1 == inlineFreeFuncA_3);
-    BOOST_CHECK(inlineFreeFuncA_3 == inlineFreeFuncA_4);
-    BOOST_CHECK(inlineFreeFuncA_3 == inlineFreeFuncA_5);
-    BOOST_CHECK(inlineFreeFuncA_1 == inlineFreeFuncA_6);
-    BOOST_CHECK(inlineFreeFuncA_3 == inlineFreeFuncA_6);
     auto singleInheritStaticmemFuncNoParamA_1 = generic::delegate<void(void)>::from(&SingleInheritBaseClass::rawStaticMemFuncNoParamA);
     auto singleInheritStaticmemFuncNoParamA_2 = generic::delegate<void(void)>(&SingleInheritBaseClass::rawStaticMemFuncNoParamA);
     BOOST_CHECK(inlineFreeFuncA_3 != singleInheritStaticmemFuncNoParamA_1);
@@ -28,6 +17,29 @@ BOOST_AUTO_TEST_CASE(custom)
 
     auto inlineFreeFuncB_1 = generic::delegate<void(void)>(&rawInlineFreeFuncNoParamB);
     BOOST_CHECK(inlineFreeFuncA_3 != inlineFreeFuncB_1);
+}
+
+BOOST_AUTO_TEST_CASE(inlineFreeFuncWithParam)
+{
+	auto inlineFreeFuncA_1 = generic::delegate<void(void)>::from<&rawInlineFreeFuncNoParamA>();
+	auto inlineFreeFuncA_2 = generic::delegate<void(void)>::from<&rawInlineFreeFuncNoParamA>();
+	BOOST_CHECK(inlineFreeFuncA_1 == inlineFreeFuncA_2);
+
+	auto inlineFreeFuncParamA_1 = generic::delegate<void(EventSPtr)>(&rawInlineFreeFuncWithParamA);
+	auto inlineFreeFuncParamA_2 = generic::delegate<void(EventSPtr)>(&rawInlineFreeFuncWithParamA);
+	auto inlineFreeFuncParamB_1 = generic::delegate<void(EventSPtr)>(&rawInlineFreeFuncWithParamB);
+	BOOST_CHECK(inlineFreeFuncParamA_1 == inlineFreeFuncParamA_2);
+	BOOST_CHECK(inlineFreeFuncParamA_1 != inlineFreeFuncParamB_1);
+
+	auto inlineFreeFuncA_3 = generic::delegate<void(void)>(&rawInlineFreeFuncNoParamA);
+	auto inlineFreeFuncA_4 = generic::delegate<void(void)>(&rawInlineFreeFuncNoParamA);
+	generic::delegate<void(void)> inlineFreeFuncA_5 = &rawInlineFreeFuncNoParamA;
+	auto inlineFreeFuncA_6 = generic::delegate<void(void)>::from(&rawInlineFreeFuncNoParamA);
+	BOOST_CHECK(inlineFreeFuncA_1 == inlineFreeFuncA_3);
+	BOOST_CHECK(inlineFreeFuncA_3 == inlineFreeFuncA_4);
+	BOOST_CHECK(inlineFreeFuncA_3 == inlineFreeFuncA_5);
+	BOOST_CHECK(inlineFreeFuncA_1 == inlineFreeFuncA_6);
+	BOOST_CHECK(inlineFreeFuncA_3 == inlineFreeFuncA_6);
 }
 
 BOOST_AUTO_TEST_CASE(equality_freeFuncNoParam)
