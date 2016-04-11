@@ -11,9 +11,10 @@
 
 #ifdef _MSC_VER
 
+#if (_MSC_VER < 1900) // constexpr & noexcept were not available prior to VS14
 #define constexpr const
-//#include <yvals.h>
 #define noexcept //_NOEXCEPT
+#endif
 
 namespace ssvu
 {

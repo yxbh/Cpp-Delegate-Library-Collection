@@ -29,7 +29,7 @@
 /*
     VC work arounds for constexpr and noexcept. VC12 and below do not support these 2 keywords.
 */
-#ifdef _MSC_VER
+#if defined(_MSC_VER) && (_MSC_VER < 1900)
 #define constexpr const
 #define noexcept throw()//_NOEXCEPT
 #endif
