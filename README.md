@@ -27,7 +27,7 @@ These libraries also contain my own personal modifications which include:
  * VC workarounds (e.g. C++11 non-conformance workarounds).
 
 ## Test
-Boost unit test is also available under the unit_test directory. Both a VS2013 and a Qt project are provided. You will have to modify the Boost library paths to your own before you build the tests. VS solution is setted up to run the test post-build.
+Boost unit test is also available under the unit_test directory. Both a VS2015 and a Qt project(outdated) are provided. You will have to modify the Boost library paths to your own before you build the tests. VS solution is setted up to run the test post-build.
 
 ## Known Issues
 None AFAIK.
