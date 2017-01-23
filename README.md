@@ -27,7 +27,9 @@ These libraries also contain my own personal modifications which include:
  * VC workarounds (e.g. C++11 non-conformance workarounds).
 
 ## Test
-Boost unit test is also available under the unit_test directory. Both a VS2015 and a Qt project(outdated) are provided. You will have to modify the Boost library paths to your own before you build the tests. VS solution is setted up to run the test post-build.
+Unit tests using the Catch library are available to test how well the equality operators work. These are available under the unit_test directory. Both a VS2015 and a Qt project(outdated) are provided. VS solution is setted up to run the test post-build.
+
+The project originally used Boost unit test which was a pain to add in all the dependencies and keeping it up to date. Catch is header only and just as easy to use.
 
 ## Known Issues
 None AFAIK.
@@ -50,7 +52,7 @@ A Visual Studio 2015 solution is also provided. This is tested on a Win10 deskto
 
 Due to the fact that VC++ is still C++11 non-conformance, quite a bit of workaround had to be added to make the C++11 versions of the delegate libraries to work. What I've done is providing 2 copies of each of the affected libraries separated by #ifdef's within their respective header files. If the '_MSC_VER' is detected then the visual studio version containing the workarounds would be used.
 
-In Visual Studio, COMDAT Folding needs to be disabled in the linker ('/OPT:ICF' -> '/OPT:NOICF') in order for the libraries to work correctly. In this example, COMDAT Folding simply make the comparison operators work incorrectly.
+In Visual Studio, COMDAT Folding needs to be disabled in the linker ('/OPT:ICF' -> '/OPT:NOICF') in order for the libraries to work correctly. In our scenario, COMDAT Folding simply make the comparison operators work incorrectly. If you need equality operators in your delegates, you will have to disable it in your VS projects too.
 
 ## License
 Each library should be retained within the original license that they were distributed in. I do not claim credit for each library's original implementation, except for my own modification.
