@@ -43,7 +43,6 @@ TEST_CASE()
         generic::delegate<void(void)> inlineFreeFuncA_5 = &rawInlineFreeFuncNoParamA;
         auto inlineFreeFuncA_6 = generic::delegate<void(void)>::from(&rawInlineFreeFuncNoParamA);
         //REQUIRE(inlineFreeFuncA_1 == inlineFreeFuncA_3); // fails
-        REQUIRE(inlineFreeFuncA_3 == inlineFreeFuncA_4);
         //REQUIRE(inlineFreeFuncA_3 == inlineFreeFuncA_5); // fails
         //REQUIRE(inlineFreeFuncA_1 == inlineFreeFuncA_6); // fails
         REQUIRE(inlineFreeFuncA_3 == inlineFreeFuncA_6);
