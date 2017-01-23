@@ -13,7 +13,8 @@ SOURCES += \
     TEST_SRDelegate.cpp
 
 HEADERS += \
-    test_sample.hpp
+    test_sample.hpp \
+    catch.hpp
 
 #
 # Build ouput
@@ -52,29 +53,4 @@ CONFIG(debug, debug|release) { # Debug build dirs
 #
 INCLUDEPATH += \
     ../ \                           # delegate libraries
-#
-
-#
-# Boost lib dir & file
-# set your Boost library path here.
-#
-BOOST_LIB_DIR = ../
-exists( D:/LIBS/boost/boost_1_55_0_mingw32_481/boost_1_55_0/stage/lib/ ) {
-    BOOST_LIB_DIR = D:/LIBS/boost/boost_1_55_0_mingw32_481/boost_1_55_0/stage/lib/
-}
-exists( $$PWD/../../../boost_1_55_0/stage/lib/ ) {
-    BOOST_LIB_DIR = $$PWD/../../../boost_1_55_0/stage/lib/
-}
-
-win32:CONFIG(release, debug|release) {
-    LIBS += -L$${BOOST_LIB_DIR} -lboost_unit_test_framework-mgw48-mt-1_55
-}
-else:win32:CONFIG(debug, debug|release) {
-    LIBS += -L$${BOOST_LIB_DIR} -lboost_unit_test_framework-mgw48-mt-d-1_55
-}
-else:unix: LIBS += -L$${BOOST_LIB_DIR} -lboost_unit_test_framework-mgw48-mt-1_55
-
-INCLUDEPATH += $$PWD/../../../boost_1_55_0/
-INCLUDEPATH += D:/LIBS/boost/boost_1_55_0/
-DEPENDPATH += $$PWD/../../../boost_1_55_0/stage
 #
