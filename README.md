@@ -44,6 +44,7 @@ Function types tested at the moment are below:
  * static global function (with and without parameter)
  * static member function (with and without parameter)
  * non-virtual member function (with and without parameter)
+ * inlined functions
 
 ### Build
 A Qt project file is provided. It has been tested on a Win7 laptop and a Win8 desktop.
